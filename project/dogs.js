@@ -1,12 +1,12 @@
 module.exports = [{ //data reserve
-  name: "Fido",
-  breed: "Doberman"
+  name: "Pickles",
+  breed: "Chihuahua"
 },
 {
-  name: "Toby",
+  name: "Tammy",
   breed: "Beagle"
 },
 {
   name: "Max",
-  breed: "Bulldog"
+  breed: "Labrador"
 }];
