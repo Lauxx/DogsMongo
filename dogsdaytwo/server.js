@@ -1,6 +1,8 @@
 var express = require('express');
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var session = require('express-session');//requiring session
+var config = require('./config.js');
 
 var dogControl = require('./dogControl.js');
 
@@ -9,6 +11,8 @@ var app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(session(config));
+//app.use(session({ secret: "banana" }));//add session, with a secret = banana
 app.use(express.static(__dirname + '/public'));
 
 
