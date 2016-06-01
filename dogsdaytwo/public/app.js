@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	var getDogs = function(){
-		//var $dogRow = $('.dogRow');
+		
 
 		$.ajax({
 			method: 'GET', 
@@ -19,7 +19,37 @@ $(document).ready(function(){
 		});
 	};
 
-$('#getDogs').on("click", getDogs);	
+$('#getDogs').on("click", getDogs);
+
+	var postDogs = function(){
+		event.preventDefault();
+
+		var name = $("#name").val();
+		var breed = $("#breed").val();
+
+		var dog = {};
+		dog.name = name;
+		dog.breed = breed;
+		console.log(dog);
+
+		$.ajax({
+			method: 'POST',
+			url: '/api/dogs', 
+			data: dog
+		}).then(function(data){
+			console.log("I made a puppy", data);
+			for(var i = 0; i < data.length; i++){
+				$(".dogRow").append(`
+				<tr>\
+					<td>`+ data[i].name + `</td>\
+					<td>` + data[i].breed +`</td>\
+				</tr>\	
+				`);
+			};
+		});
+	};
+
+$('#postDog').on('click', postDogs);		
 
 });
 

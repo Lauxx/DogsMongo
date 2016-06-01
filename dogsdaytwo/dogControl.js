@@ -5,13 +5,16 @@ var dogs = require('./dogs.js');
 module.exports = {
 	//POST
 	create: function(req, res, next){
-		dogs.push(req.body)
-		res.send(dogs)
+
+		dogs.push(req.body);
+		console.log(dogs);
+		res.send(dogs);
+
 	}, 
 
 	//GET
 	read: function(req, res, next){
-		res.send(dogs)
+		res.send(dogs);
 	},
 
 	//PUT
