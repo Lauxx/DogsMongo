@@ -5,9 +5,7 @@ var dogs = require('./dogs.js');
 module.exports = {
 	//POST
 	create: function(req, res, next){
-
 		dogs.push(req.body);
-		console.log(dogs);
 		res.send(dogs);
 
 	}, 

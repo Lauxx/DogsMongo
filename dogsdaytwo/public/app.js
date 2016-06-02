@@ -37,16 +37,14 @@ $('#getDogs').on("click", getDogs);
 			url: '/api/dogs', 
 			data: dog
 		}).then(function(data){
-			console.log("I made a puppy", data);
-			for(var i = 0; i < data.length; i++){
 				$(".dogRow").append(`
 				<tr>\
-					<td>`+ data[i].name + `</td>\
-					<td>` + data[i].breed +`</td>\
+					<td>`+ data[data.length - 1].name + `</td>\
+					<td>` + data[data.length - 1].breed +`</td>\
 				</tr>\	
 				`);
-			};
 		});
+
 	};
 
 $('#postDog').on('click', postDogs);		
