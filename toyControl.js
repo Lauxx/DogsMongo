@@ -1,4 +1,4 @@
-var DogModel = require('./models/DogModel.js');
+var ToyModel = require('./models/ToyModel.js');
 //mongoose methods include = 
 //.save(callback) = referencing our model, 
 //.find.exec = referencing Model .find(query).exec(callback), 
@@ -8,14 +8,14 @@ var DogModel = require('./models/DogModel.js');
 
 
 
-//setting up our dog controller
+//setting up our Toy controller
 //moved our functions with our control calls CRUD
 
 module.exports = {
 	//POST
 	create: function(req, res, next){
-		var dog = new DogModel(req.body);
-		dog.save(function(err, result){
+		var toy = new ToyModel(req.body);
+		toy.save(function(err, result){
 			if(err) {
 				res.send(err);
 			} else {
@@ -27,9 +27,8 @@ module.exports = {
 
 	//GET
 	read: function(req, res, next){
-		DogModel
+		ToyModel
 		.find()
-		.populate("favToys")
 		.exec(function(err, result){
 			if (err){
 				res.send(err)
@@ -41,7 +40,7 @@ module.exports = {
 
 	//PUT
 	update: function(req, res, next){
-		DogModel
+		ToyModel
 		.findByIdAndUpdate(req.params.id, req.body, function(err, result){
 			if(err){
 				res.send(err);
@@ -53,7 +52,7 @@ module.exports = {
 
 	//DELETE
 	delete: function(req, res, next){
-		DogModel
+		ToyModel
 		.findByIdAndRemove(req.params.id, req.body, function(err, result){
 			if(err){
 				res.send(err);

@@ -5,7 +5,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			method: 'GET', 
-			url: '/api/dogs'
+			url: '/dogs'
 		}).then(function(response){
 		//console.log(response);
 			for(var i = 0; i < response.length; i++){
@@ -34,7 +34,7 @@ $('#getDogs').on("click", getDogs);
 
 		$.ajax({
 			method: 'POST',
-			url: '/api/dogs', 
+			url: '/dogs', 
 			data: dog
 		}).then(function(data){
 				$(".dogRow").append(`
